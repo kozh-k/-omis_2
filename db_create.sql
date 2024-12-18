@@ -1,0 +1,20 @@
+USE omis;
+
+CREATE TABLE Devices (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Scripts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    device_id INT NOT NULL,
+    duration INT NOT NULL,
+    FOREIGN KEY (device_id) REFERENCES Devices(id)
+);
+
+CREATE TABLE History (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    device_name VARCHAR(255) NOT NULL,
+    time DATETIME NOT NULL
+);
